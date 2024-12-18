@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
+    <script src="scripts.js" defer></script>
+    <title>Consulta - Biblioteca do IFTM</title>
+    <link rel="icon" href="livro.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <h1>Consulta ao Acervo da Biblioteca do IFTM</h1>
+        <p>Sistema para pesquisa de livros, revistas, dissertações e outros materiais do acervo da biblioteca do campus
+            Uberlândia Centro.</p>
+    </header>
+
+    <section
+        style="width: 450px; margin: auto; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="text-align: center;">Preencha um ou mais dados da publicação</h2>
+        <form id="consultaForm">
+            <label for="input1">Autor:</label>
+            <input type="text" id="input1" placeholder="Digite o autor completo (apenas um por busca)" oninput="verificarFormulario()"><br>
+
+            <label for="input2">Título:</label>
+            <input type="text" id="input2" placeholder="Digite o título completo (apenas um por busca)" oninput="verificarFormulario()"><br>
+
+            <label for="input3">ISBN(Ex: 999-99-999-9999-9)</label>
+            <input type="text" id="input3" placeholder="Digite o ISBN completo (apenas um por busca)" oninput="verificarFormulario()"><br>
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <button type="button" id="btnAjuda" onclick="mostrarAjuda()" title="Ajuda" style="background: none; border: none; cursor: pointer; display: flex; align-items: center;">
+                    <img src="ajuda.png" alt="Ícone de ajuda" style="width: 20px; margin-right: 5px;"> Ajuda
+                </button>
+                <div style="text-align: right;">
+                    <button type="button" id="btnLimpar" onclick="limparFormulario()" title="Limpar formulário" style="background: red; border: none; cursor: pointer; color: white; display: none; border-radius: 10px">Limpar</button>
+                    <button type="button" id="btnCancelar" onclick="cancelarConsulta()" hidden title="Cancelar consulta" style="background: red; border: none; color: white; cursor: pointer; border-radius: 10px">Cancelar</button>
+                    <button type="button" id="btnBuscar" onclick="buscar()" title="Buscar publicação" style="background: #007BFF; border: none; cursor: pointer; color: white; border-radius: 10px; padding: 10px 15px;">Buscar</button>
+                </div>
+            </div>
+        </form>
+
+        <div id="barraProgresso" style="width: 100%; background-color: #f3f3f3; border: 1px solid #ccc; margin-top: 10px; height: 20px; display: none;">
+            <div id="progresso" style="width: 0%; height: 100%; background-color: #4caf50; text-align: center; line-height: 20px; color: white;">0%</div>
+        </div>
+        <div id="mensagemBusca" style="text-align: center; margin-top: 10px; display: none;">Buscando no acervo...</div>
+
+        <div id="exemplos" style="margin-top: 20px;">
+            <h3>Exemplos de Busca:</h3>
+            <ul id="listaExemplos"></ul>
+            <li><b>Nome:</b> J.K. Rowling</li>
+            <li><b>Titulo:</b> O Sol é Para Todos</li>
+            <li><b>ISBN:</b> 978-02-611-0238-5</li>
+        </div>
+    </section>
+
+    <div id="customAlert" class="custom-alert" style="display: none;">
+        <div class="custom-alert-content">
+            <span id="customAlertMessage"></span>
+            <button onclick="fecharAlertaPersonalizado()">OK</button>
+        </div>
+    </div>
+</body>
+
+</html>

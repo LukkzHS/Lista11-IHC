@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #e6f7ff; 
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: calc(100% - 10px);
+    padding: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+}
+
+#barraProgresso {
+    display: none;
+}
+
+#btnCancelar {
+    background-color: transparent;
+}
+
+#exemplos {
+    background-color: #f3f3f3;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#exemplos h3 {
+    margin: 0;
+}
+
+#exemplos ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#exemplos li {
+    margin-bottom: 5px;
+}
+
+.custom-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.custom-alert-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.custom-alert-content button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-alert-content button:hover {
+    background-color: #0056b3;
+}
